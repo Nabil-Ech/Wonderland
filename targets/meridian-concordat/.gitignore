@@ -1,0 +1,9 @@
+broadcast/
+cache/
+out/
+# forge-std is installed at build time via forge install
+lib/forge-std/
+# forge-ctf is copied from repo root at build time
+lib/forge-ctf/
+# openzeppelin is installed at build time via forge install
+lib/openzeppelin-contracts/
