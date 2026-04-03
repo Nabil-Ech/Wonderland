@@ -7,10 +7,10 @@ remappings = [
     "@openzeppelin/=lib/openzeppelin-contracts/"
 ]
 extra_output_files = ["abi"]
-solc_version = "0.8.28"
+## Removed pinned solc 0.8.28 — target contracts require 0.8.19, let Foundry auto-resolve
 optimizer = true
 optimizer_runs = 200
-via_ir = false
+via_ir = true  # needed for attack_score.s.sol (stack too deep without IR)
 evm_version = "cancun"
 
 # Gas optimization for fast deploys during CTF
