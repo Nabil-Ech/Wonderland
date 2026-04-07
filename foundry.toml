@@ -2,16 +2,16 @@
 src = "src"
 out = "out"
 libs = ["lib"]
-remappings = [
-    "forge-std/=lib/forge-std/src/",
-    "@openzeppelin/=lib/openzeppelin-contracts/"
-]
 extra_output_files = ["abi"]
 ## Removed pinned solc 0.8.28 — target contracts require 0.8.19, let Foundry auto-resolve
 optimizer = true
 optimizer_runs = 200
 via_ir = true  # needed for attack_score.s.sol (stack too deep without IR)
 evm_version = "cancun"
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+]
 
 # Gas optimization for fast deploys during CTF
 [profile.ctf]

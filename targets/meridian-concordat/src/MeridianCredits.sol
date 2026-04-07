@@ -40,6 +40,7 @@ contract MeridianCredits is ERC20 {
         require(authorized[msg.sender], "Unauthorized minter");
         require(mintCap[msg.sender] >= amount, "Exceeds station mint cap");
         require(!hasMinted[msg.sender], "Station has already minted");
+        // if a fraction of mint cap is minted, user can no longer min again
         hasMinted[msg.sender] = true;
         mintCap[msg.sender] -= amount;
         _mint(to, amount);

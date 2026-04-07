@@ -49,6 +49,7 @@ contract Challenge {
   /// @param _reserves Array of 7 reserve station addresses
   constructor(address _system, address _player, address[] memory _reserves) {
     PLAYER = _player;
+    // not yet initialized
     LEGACY_OPS = new LegacyReserveOps();
     BATCH_EXECUTOR = new BatchExecutor();
     SAFE_WALLET = new SafeSmartWallet();

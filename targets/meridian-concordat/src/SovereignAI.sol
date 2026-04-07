@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.28;
 
-import {MeridianCredits} from "src/MeridianCredits.sol";
+import {MeridianCredits} from "./MeridianCredits.sol";
 
 /// @title Sovereign AI Module
 /// @notice AXIOM's self-governance contract
