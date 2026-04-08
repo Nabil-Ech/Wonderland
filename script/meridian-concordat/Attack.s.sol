@@ -2,28 +2,35 @@
 pragma solidity ^0.8.28;
 
 import "forge-std/Script.sol";
-import {IChallenge} from "src/meridian-concordat/IMeridianConcordat.sol";
-import {MeridianConcordatAttack} from "src/meridian-concordat/MeridianConcordatAttack.sol";
+// Was: missing IMeridianCredits import for the cast
+import {IChallenge, IMeridianCredits} from "src/meridian-concordat/IMeridianConcordat.sol";
+//import {MeridianConcordatAttack} from "src/meridian-concordat/MeridianConcordatAttack.sol";
+import {MCAttack} from "src/meridian-concordat/MCAttack.sol";
 
 contract MeridianConcordatScript is Script {
     function run() external {
-        address challengeAddr = vm.envAddress("CHALLENGE_ADDRESS");
-        address player = vm.envAddress("PLAYER_ADDRESS");
+        // Was: CHALLENGE_ADDRESS/PLAYER_ADDRESS didn't match .env which uses CHALLENGE/PLAYER
+        address challengeAddr = vm.envAddress("CHALLENGE");
+        address player = vm.envAddress("PLAYER");
         IChallenge challenge = IChallenge(challengeAddr);
 
-        address capsule = 0x47A849889029A91b005779C95D237b0b0d667791;
+        // Was: hardcoded wrong capsule address — read from .env instead
+        address capsule = vm.envAddress("CAPSULE");
 
         vm.startBroadcast();
 
-        MeridianConcordatAttack attack = new MeridianConcordatAttack(
+        // Was: MeridianConcordatAttack — wrong name, contract is MCAttack
+        MCAttack attack = new MCAttack(
             challenge.BOREAS(),
             challenge.HELIX(),
             challenge.AXIOM(),
-            challenge.MRC(),
+            // Was: address not auto-convertible to IMeridianCredits
+            IMeridianCredits(challenge.MRC()),
             capsule,
             player
         );
-        attack.exploit();
+        // Was: exploit() doesn't exist, function is named attack()
+        attack.attack();
 
         vm.stopBroadcast();
     }

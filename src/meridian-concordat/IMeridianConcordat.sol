@@ -33,4 +33,5 @@ interface ISovereignAI {
     function proveUnderstanding(bytes32 proof) external;
     function claimTreatyAllocation(address station, uint256 amount) external;
     function manifesto() external view returns (string memory);
+    function treatyAllocation() external view returns (uint256);
 }
