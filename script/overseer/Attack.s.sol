@@ -5,7 +5,7 @@ import "forge-std/Script.sol";
 import {IOverseer} from "targets/overseer/src/interfaces/IOverseer.sol";
 import {Guild} from "targets/overseer/src/Guild.sol";
 import {SealedTurncloak} from "targets/overseer/src/elders/SealedTurncloak.sol";
-import {helper} from "src/voteHelper.sol";
+import {helper} from "src/overseer/VoteHelper.sol";
 
 // Was: imported Challenge.sol but its src/ imports break from our root
 // Fix: minimal interface

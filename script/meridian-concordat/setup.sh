@@ -47,7 +47,7 @@ echo "  Anvil PID: $ANVIL_PID"
 # 2. Deploy Challenge contract
 # ──────────────────────────────────────────────────────
 echo "[2/5] Deploying Challenge contract ..."
-DEPLOY_OUTPUT=$(forge script script/MeridianSetup.s.sol \
+DEPLOY_OUTPUT=$(forge script script/meridian-concordat/Setup.s.sol \
   --rpc-url $RPC --broadcast --skip-simulation 2>&1)
 
 CHALLENGE=$(echo "$DEPLOY_OUTPUT" | grep "CHALLENGE=" | sed 's/.*CHALLENGE=//')

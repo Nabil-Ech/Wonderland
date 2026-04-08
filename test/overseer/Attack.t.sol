@@ -7,7 +7,7 @@ import {Overseer} from "targets/overseer/src/Overseer.sol";
 import {Guild} from "targets/overseer/src/Guild.sol";
 import {SealedTurncloak} from "targets/overseer/src/elders/SealedTurncloak.sol";
 import {Loyalist} from "targets/overseer/src/elders/Loyalist.sol";
-import {helper} from "src/voteHelper.sol";
+import {helper} from "src/overseer/VoteHelper.sol";
 
 // Was: imported Challenge.sol but its internal src/ imports don't resolve from our root
 // Fix: replicate Challenge's setup inline (it just deploys + wires contracts)

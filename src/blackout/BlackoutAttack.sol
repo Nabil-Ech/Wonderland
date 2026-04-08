@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
-import "../targets/blackout/src/SentinelGate.sol";
-import "../targets/blackout/src/interfaces/ISentinelGate.sol";
+import "targets/blackout/src/SentinelGate.sol";
+import "targets/blackout/src/interfaces/ISentinelGate.sol";
 
 contract blackoutAttack {
     ISentinelGate public target;

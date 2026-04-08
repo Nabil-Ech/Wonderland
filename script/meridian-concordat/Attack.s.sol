@@ -2,8 +2,8 @@
 pragma solidity ^0.8.28;
 
 import "forge-std/Script.sol";
-import {IChallenge} from "../src/IMeridianConcordat.sol";
-import {MeridianConcordatAttack} from "../src/MeridianConcordatAttack.sol";
+import {IChallenge} from "src/meridian-concordat/IMeridianConcordat.sol";
+import {MeridianConcordatAttack} from "src/meridian-concordat/MeridianConcordatAttack.sol";
 
 contract MeridianConcordatScript is Script {
     function run() external {

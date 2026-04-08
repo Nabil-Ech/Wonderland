@@ -2,8 +2,8 @@
 # Usage: ./new-challenge.sh <challenge-name>
 # Example: ./new-challenge.sh piggy-bank
 #
-# Creates a full challenge workspace with all template files.
-# Each team member works in their own challenge folder — no conflicts.
+# Creates a challenge workspace with attack, script, and test files.
+# CTF-provided contracts go in targets/<name>/ (copy them manually).
 
 if [ -z "$1" ]; then
     echo "Usage: ./new-challenge.sh <challenge-name>"
@@ -12,29 +12,17 @@ if [ -z "$1" ]; then
 fi
 
 NAME=$1
-DIR="challenges/$NAME"
 
-if [ -d "$DIR" ]; then
-    echo "Challenge '$NAME' already exists at $DIR"
+# Check if challenge already exists
+if [ -d "src/$NAME" ] || [ -d "script/$NAME" ] || [ -d "test/$NAME" ]; then
+    echo "Challenge '$NAME' already exists"
     exit 1
 fi
 
-mkdir -p "$DIR"
-
-# Challenge source (paste the vulnerable contract here)
-cat > "$DIR/Challenge.sol" << 'SOLEOF'
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-// PASTE THE CHALLENGE CONTRACT SOURCE CODE HERE
-
-// interface IChallenge {
-//     function isSolved() external view returns (bool);
-// }
-SOLEOF
+mkdir -p "src/$NAME" "script/$NAME" "test/$NAME" "targets/$NAME/src"
 
 # Attack contract
-cat > "$DIR/Attack.sol" << 'SOLEOF'
+cat > "src/$NAME/Attack.sol" << 'SOLEOF'
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -54,13 +42,14 @@ contract Attack {
 SOLEOF
 
 # Deploy script
-cat > "$DIR/Solve.s.sol" << 'SOLEOF'
+cat > "script/$NAME/Attack.s.sol" << SOLEOF
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "forge-std/Script.sol";
+import "src/$NAME/Attack.sol";
 
-contract SolveScript is Script {
+contract AttackScript is Script {
     function run() external {
         vm.startBroadcast();
 
@@ -74,15 +63,15 @@ contract SolveScript is Script {
 SOLEOF
 
 # Test
-cat > "$DIR/Solve.t.sol" << 'SOLEOF'
+cat > "test/$NAME/Attack.t.sol" << SOLEOF
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "forge-std/Test.sol";
+import "src/$NAME/Attack.sol";
 
-contract SolveTest is Test {
+contract AttackTest is Test {
     function test_exploit() public {
-        // address target = 0x...;
         // vm.startPrank(vm.envAddress("PLAYER_ADDRESS"));
 
         // YOUR EXPLOIT HERE
@@ -93,36 +82,25 @@ contract SolveTest is Test {
 }
 SOLEOF
 
-# Notes file
-cat > "$DIR/NOTES.md" << EOF
-# Challenge: $NAME
+# Placeholder for CTF-provided contracts
+cat > "targets/$NAME/challenge.md" << EOF
+# $NAME
 
 ## Target Address
 \`TODO\`
 
-## Vulnerability Type
+## Win Condition
 TODO
-
-## Analysis
--
-
-## Solution
--
-
-## Key Takeaway
--
 EOF
 
-echo "✓ Created challenge workspace at $DIR/"
+echo "Created challenge workspace for '$NAME':"
 echo ""
-echo "Files:"
-echo "  $DIR/Challenge.sol  — paste the challenge source here"
-echo "  $DIR/Attack.sol     — write your attack contract"
-echo "  $DIR/Solve.s.sol    — deploy script"
-echo "  $DIR/Solve.t.sol    — test file"
-echo "  $DIR/NOTES.md       — your analysis notes"
+echo "  targets/$NAME/       — paste CTF-provided contracts here"
+echo "  src/$NAME/Attack.sol — write your attack contract"
+echo "  script/$NAME/Attack.s.sol — deploy script"
+echo "  test/$NAME/Attack.t.sol   — test file"
 echo ""
 echo "Commands:"
-echo "  forge test -vvvv --match-path $DIR/Solve.t.sol"
-echo "  forge test -vvvv --match-path $DIR/Solve.t.sol --fork-url \$CTF_RPC_URL"
-echo "  forge script $DIR/Solve.s.sol --rpc-url \$CTF_RPC_URL --broadcast --private-key \$PRIVATE_KEY"
+echo "  forge test -vvvv --match-path test/$NAME/Attack.t.sol"
+echo "  forge test -vvvv --match-path test/$NAME/Attack.t.sol --fork-url \$CTF_RPC_URL"
+echo "  forge script script/$NAME/Attack.s.sol --rpc-url \$CTF_RPC_URL --broadcast --private-key \$PRIVATE_KEY"

@@ -2,11 +2,11 @@
 pragma solidity 0.8.19;
 
 import "forge-std/Script.sol";
-import "../targets/setinel/Challenge.sol";
-import "../targets/setinel/EchoModule.sol";
-import "../targets/setinel/interfaces/ISentinelVault.sol";
-import "../src/sentinelAttack.sol";
-import "../src/echoModuleFactory.sol";
+import "targets/sentinel/Challenge.sol";
+import "targets/sentinel/EchoModule.sol";
+import "targets/sentinel/interfaces/ISentinelVault.sol";
+import "src/sentinel/SentinelAttack.sol";
+import "src/sentinel/EchoModuleFactory.sol";
 
 contract SentinelAttackScript is Script {
     function run() external {

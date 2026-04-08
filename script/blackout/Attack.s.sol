@@ -2,9 +2,9 @@
 pragma solidity 0.8.19;
 
 import "forge-std/Script.sol";
-import "../src/blacoutAttack.sol";
-import "../targets/blackout/src/Challenge.sol";
-import "../targets/blackout/src/SentinelGate.sol";
+import "src/blackout/BlackoutAttack.sol";
+import "targets/blackout/src/Challenge.sol";
+import "targets/blackout/src/SentinelGate.sol";
 
 contract SentinelAttackScript is Script {
     function run() external {

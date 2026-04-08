@@ -2,7 +2,7 @@
 pragma solidity 0.8.19;
 
 // Import the interface so we can call operatorWithdraw properly
-import "../targets/setinel/interfaces/ISentinelVault.sol";
+import "targets/sentinel/interfaces/ISentinelVault.sol";
 
 contract EchoModuleAttack {
     // This will be deployed at the SAME address as the original EchoModule

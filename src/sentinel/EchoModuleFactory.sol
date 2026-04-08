@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
-import "../targets/setinel/EchoModule.sol";
-import "./EchoModule_attack.sol";
+import "targets/sentinel/EchoModule.sol";
+import "./EchoModuleAttack.sol";
 
 // Interface so Factory can read the phase from its deployer (SentinelAttack)
 interface IPhaseProvider {

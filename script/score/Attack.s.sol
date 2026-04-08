@@ -2,7 +2,7 @@
 pragma solidity ^0.8.18;
 
 import "forge-std/Script.sol";
-import {Exploit} from "../src/score_exploit.sol";
+import {Exploit} from "src/score/ScoreExploit.sol";
 
 interface IChallenge { 
     function ORACLE() external view returns (address); 

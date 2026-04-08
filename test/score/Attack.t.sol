@@ -2,7 +2,7 @@
 pragma solidity ^0.8.18;
 
 import "forge-std/Test.sol";
-import "../src/ScoreAttack.sol";
+import "src/score/ScoreAttack.sol";
 
 contract ScoreTest is Test {
     address constant CHALLENGE_ADDR = 0x8F1B5Dd52F28FA9D2e20F375d4555aEe03871902;

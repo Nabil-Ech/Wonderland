@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
-import "../targets/setinel/EchoModule.sol";
-import "../targets/setinel/interfaces/ISentinelVault.sol";
-import "./echoModuleFactory.sol";
-import "./EchoModule_attack.sol";
+import "targets/sentinel/EchoModule.sol";
+import "targets/sentinel/interfaces/ISentinelVault.sol";
+import "./EchoModuleFactory.sol";
+import "./EchoModuleAttack.sol";
 
 /// @notice Orchestrates the metamorphic CREATE2 attack on SentinelVault.
 ///
