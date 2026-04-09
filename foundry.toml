@@ -11,6 +11,7 @@ evm_version = "cancun"
 remappings = [
     "forge-std/=lib/forge-std/src/",
     "@openzeppelin/=lib/openzeppelin-contracts/",
+    "solmate/=lib/solmate/src/",
 ]
 
 # Gas optimization for fast deploys during CTF

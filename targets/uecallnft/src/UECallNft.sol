@@ -24,6 +24,7 @@ contract UECallNft is IUECallNft, ERC721 {
     @param _data: any extra data in case it's needed
   */
   // no check for owner, anyone can call this function
+  // plus reentrancy attack her
   function sellNft(uint256 _id, address _recipient, bytes calldata _data) external hasSoldCheck {
     if (address(this).balance < PRICE >> 2) revert ContractOutOfFunds();
     (bool _success,) = _recipient.call{value: PRICE >> 2}(_data);

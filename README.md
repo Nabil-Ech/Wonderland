@@ -11,11 +11,11 @@ Solidity CTF challenge solutions from the Wonderland CTF event.
 | 3 | **Score** | Solved | Oracle gas manipulation + XOR solve | [targets](targets/score/) / [attack](src/score/) / [script](script/score/) / [test](test/score/) |
 | 4 | **Overseer** | Solved | Badge-transfer governance exploit | [targets](targets/overseer/) / [attack](src/overseer/) / [script](script/overseer/) / [test](test/overseer/) |
 | 5 | **Puzzle Wallet** | Solved | Proxy storage collision + delegatecall | [attack](src/puzzle-wallet/) / [script](script/puzzle-wallet/) / [test](test/puzzle-wallet/) |
-| 6 | **Meridian Concordat** | In Progress | EIP-7702 multi-station exploit | [targets](targets/meridian-concordat/) / [attack](src/meridian-concordat/) / [script](script/meridian-concordat/) / [test](test/meridian-concordat/) |
+| 6 | **Meridian Concordat** | Solved | EIP-7702 multi-station exploit | [targets](targets/meridian-concordat/) / [attack](src/meridian-concordat/) / [script](script/meridian-concordat/) / [test](test/meridian-concordat/) |
 | 7 | **ScrambledZoo** | Unsolved | Physical / IRL challenge | [targets](targets/scrambledZoo/) |
 | 8 | **StakeHouse** | Unsolved | TBD | [targets](targets/stakehouse/) |
 | 9 | **Lucky Guess** | Unsolved | Noir ZK circuit | [targets](targets/lucky_guess/) |
-| 10 | **UECallNFT** | Unsolved | TBD | [targets](targets/uecallnft/) |
+| 10 | **UECallNFT** | Solved | Reentrancy via sellNft + mintOwner self-call | [targets](targets/uecallnft/) / [attack](src/uecallnft/) / [script](script/uecallnft/) |
 
 ## Repo Structure
 
