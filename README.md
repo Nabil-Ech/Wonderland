@@ -13,9 +13,10 @@ Solidity CTF challenge solutions from the Wonderland CTF event.
 | 5 | **Puzzle Wallet** | Solved | Proxy storage collision + delegatecall | [attack](src/puzzle-wallet/) / [script](script/puzzle-wallet/) / [test](test/puzzle-wallet/) |
 | 6 | **Meridian Concordat** | Solved | EIP-7702 multi-station exploit | [targets](targets/meridian-concordat/) / [attack](src/meridian-concordat/) / [script](script/meridian-concordat/) / [test](test/meridian-concordat/) |
 | 7 | **ScrambledZoo** | Unsolved | Physical / IRL challenge | [targets](targets/scrambledZoo/) |
-| 8 | **StakeHouse** | Unsolved | TBD | [targets](targets/stakehouse/) |
-| 9 | **Lucky Guess** | Unsolved | Noir ZK circuit | [targets](targets/lucky_guess/) |
-| 10 | **UECallNFT** | Solved | Reentrancy via sellNft + mintOwner self-call | [targets](targets/uecallnft/) / [attack](src/uecallnft/) / [script](script/uecallnft/) |
+| 8 | **Ludopathy** | Solved | Missing `roundClosed` check in `largeBet` — bet on known winner post-draw | [targets](targets/ludopathy/) / [attack](src/ludopathy/) / [script](script/ludopathy/) |
+| 9 | **StakeHouse** | Unsolved | TBD | [targets](targets/stakehouse/) |
+| 10 | **Lucky Guess** | Unsolved | Noir ZK circuit | [targets](targets/lucky_guess/) |
+| 11 | **UECallNFT** | Solved | Reentrancy via sellNft + mintOwner self-call | [targets](targets/uecallnft/) / [attack](src/uecallnft/) / [script](script/uecallnft/) |
 
 ## Repo Structure
 
