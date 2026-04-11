@@ -17,6 +17,7 @@ Solidity CTF challenge solutions from the Wonderland CTF event.
 | 9 | **StakeHouse** | Unsolved | TBD | [targets](targets/stakehouse/) |
 | 10 | **Lucky Guess** | Unsolved | Noir ZK circuit | [targets](targets/lucky_guess/) |
 | 11 | **UECallNFT** | Solved | Reentrancy via sellNft + mintOwner self-call | [targets](targets/uecallnft/) / [attack](src/uecallnft/) / [script](script/uecallnft/) |
+| 12 | **Cheese Lending** | Solved | Self-liquidation over-drain (bonus-inflated collateral > userSupply) | [targets](targets/cheese_lending/) / [attack](src/cheese_lending/CheeseAttack.sol) / [script](script/cheese_lending/) / [test](test/cheese_lending/) |
 
 ## Repo Structure
 
