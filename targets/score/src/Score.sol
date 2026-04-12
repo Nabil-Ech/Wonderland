@@ -20,15 +20,16 @@ contract Score is IScore {
 
         bytes32 _target = generateTarget();
         bytes32 _accumulator;
-        uint256 _r = IOracle(oracle).getRotation();
+        // the goal is to make -r = 0
+        uint256 _r = IOracle(oracle).getRotation(); 
 
         for (uint256 _i = 0; _i < _indices.length; _i++) {
             bytes32 _element = getElement(_indices[_i]);
             assembly {
-                let mask := sub(shl(_r, 1), 1)
-                let temp := add(_accumulator, and(_element, mask))
-                temp := or(shl(_r, temp), shr(sub(256, _r), temp))
-                _accumulator := xor(temp, _element)
+                let mask := sub(shl(_r, 1), 1) // 0
+                let temp := add(_accumulator, and(_element, mask)) // = _accumulator
+                temp := or(shl(_r, temp), shr(sub(256, _r), temp)) // = _accumulator
+                _accumulator := xor(temp, _element) // we just need to make indice = target
             }
         }
 

@@ -30,11 +30,11 @@ contract Oracle is IOracle {
 
     function getRotation() external view returns (uint256 _rotation) {
         assembly {
+            // contrubutoeCount shall be > 3
             if lt(sload(0x02), 3) {
                 mstore(0x00, 0x27dd2fbf)
                 revert(0x1c, 0x04)
             }
-
             mstore(0x00, sload(0x00))
             mstore(0x20, sload(0x02))
 
