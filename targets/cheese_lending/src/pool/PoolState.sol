@@ -74,8 +74,9 @@ abstract contract PoolState {
         return debtPrincipal[user][asset] + getDebtIncrease(user, asset);
     }
 
-        uint increase = getDebtIncrease(user, asset);
     function _accrueDebt(address user, address asset) internal {
+        // Was: `uint increase = ...` was orphaned between functions (syntax error); moved inside
+        uint increase = getDebtIncrease(user, asset);
         debtPrincipal[user][asset] += increase;
         reserves[asset].totalDebt += increase;
 

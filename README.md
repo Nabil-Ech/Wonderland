@@ -18,6 +18,8 @@ Solidity CTF challenge solutions from the Wonderland CTF event.
 | 10 | **Lucky Guess** | Unsolved | Noir ZK circuit | [targets](targets/lucky_guess/) |
 | 11 | **UECallNFT** | Solved | Reentrancy via sellNft + mintOwner self-call | [targets](targets/uecallnft/) / [attack](src/uecallnft/) / [script](script/uecallnft/) |
 | 12 | **Cheese Lending** | Solved | Self-liquidation over-drain (bonus-inflated collateral > userSupply) | [targets](targets/cheese_lending/) / [attack](src/cheese_lending/CheeseAttack.sol) / [script](script/cheese_lending/) / [test](test/cheese_lending/) |
+| 13 | **Fixed Deposits** | Solved | `deleteNode` ghost delete — unlinks list node but leaves `info` in storage; `withdrawDeposit` double-spends the same principal after `removeCompleted` pays it out | [targets](targets/fixed_deposits/) / [attack](src/fixed_deposits/AttackFixedDeposits.sol) / [script](script/fixed_deposits/Attack.s.sol) |
+| 14 | **Encoded Spell** | Solved | Truncated-calldata ABI decoding — craft raw calldata with `runes.length=256` but supply only 200 bytes; EVM pads with zeros → `weakSeals = bytes32[8](0)`, total 300 bytes → `mana=300` for CURAGA | [targets](targets/encoded_spell/) / [attack](src/encoded_spell/Attack.sol) |
 
 ## Repo Structure
 
